@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, url_for
 import os
 
 
@@ -10,12 +10,18 @@ def create_app():
     except OSError:
         pass
     
-    from . import index
+    from . import index, posts
     app.register_blueprint(index.bp)
+    app.register_blueprint(posts.bp)
+    app.add_url_rule('/', endpoint='index')
 
     @app.route('/')
-    def index():
+    def index_page():
         return index.index()
+
+    @app.route('/posts')
+    def posts_page():
+        return posts.posts()
 
     return app
 

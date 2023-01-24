@@ -35,4 +35,8 @@ bp = Blueprint('index', __name__, url_prefix='/')
 def index():
     mains, snacks, drinks = getOptions()
 
+    if request.method == 'POST':
+        if request.form['submit_deal'] == 'submit':
+            # upload happens here
+            pass
     return render_template('index.html', mains=mains, snacks=snacks, drinks=drinks)
