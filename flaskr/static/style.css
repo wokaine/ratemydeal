@@ -1,0 +1,58 @@
+html{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: rgb(82, 82, 253)
+}
+
+.title{
+    font-size: 100px;
+    text-align: center;
+}
+
+.centre{
+    margin: auto;
+    width: 60%;
+    padding: 2%;
+    text-align: center;
+}
+
+#options{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.select-boxes{
+    display: inline-block;
+}
+
+select{
+    font-size: 18px;
+}
+
+.submit{
+    font-size: 24px;
+    border: 2px solid black;
+    margin: 2%;
+    padding: 0.5%;
+    border-radius: 10px;
+}
+
+.submit:hover{
+    text-decoration: underline;
+}
+
+.submit:active{
+    background-color: rgb(84, 84, 84);
+}
+
+.to-posts{
+    padding: 1%;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.to-posts:hover{
+    text-decoration: underline;
+}
