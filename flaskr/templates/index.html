@@ -1,5 +1,24 @@
 <!doctype html>
 <title> {% block title %}{% endblock %}Rate My Deal</title>
-<nav>
-    <h1>Rate my deal</h1>
-</nav>
+<section>
+    <h1>Rate My Deal</h1>
+</section>
+<section>
+    <select name="mains" id="mains">
+        {% for option in mains %}
+            <option value="{{option}}">{{option}}</option>
+        {% endfor %}
+    </select>
+
+    <select name="snacks" id="snacks">
+        {% for option in snacks %}
+            <option value="{{option}}">{{option}}</option>
+        {% endfor %}
+    </select>
+
+    <select name="drinks" id="drinks">
+        {% for option in drinks %}
+            <option value="{{option}}">{{option}}</option>
+        {% endfor %}
+    </select>
+</section>

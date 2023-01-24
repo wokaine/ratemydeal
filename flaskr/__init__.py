@@ -17,7 +17,6 @@ def create_app():
     def index():
         return index.index()
 
-
     return app
 
 if __name__ == '__main__':
