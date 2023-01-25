@@ -2,7 +2,7 @@ from flask import (
     Flask, url_for, Blueprint, flash, g, redirect, render_template, request, session 
 )
 import functools
-from db import *
+from .db import *
 
 bp = Blueprint('posts', __name__, url_prefix='/posts')
 
