@@ -5,30 +5,34 @@
     <h1 class="title">Rate My Deal</h1>
 </section>
 <section id="options" class="centre">
-    <section class="select-boxes">
-        <select name="mains" id="mains">
-            {% for option in mains %}
-                <option value="{{option}}">{{option}}</option>
-            {% endfor %}
-        </select>
-    
-        <select name="snacks" id="snacks">
-            {% for option in snacks %}
-                <option value="{{option}}">{{option}}</option>
-            {% endfor %}
-        </select>
-    
-        <select name="drinks" id="drinks">
-            {% for option in drinks %}
-                <option value="{{option}}">{{option}}</option>
-            {% endfor %}
-        </select>
-    </section>
-
-
-    <section>
-        <input class="submit" type="submit" name="submit_deal" value="Submit">
-    </section>
+    <h2>What did you have today?</h2>
+    <form method="post">
+        <section class="select-boxes">
+            <label for="main">Main:</label>
+            <select name="main" id="main">
+                {% for main in mains %}
+                    <option value="{{main}}">{{main}}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="snack">Snack:</label>
+            <select name="snack" id="snack">
+                {% for snack in snacks %}
+                    <option value="{{snack}}">{{snack}}</option>
+                {% endfor %}
+            </select>
+        
+            <label for="drink">Drink:</label>
+            <select name="drink" id="drink">
+                {% for drink in drinks %}
+                    <option value="{{drink}}">{{drink}}</option>
+                {% endfor %}
+            </select>
+        </section>
+        <section>
+            <input class="submit" type="submit" name="submit_deal" value="Submit">
+        </section>
+    </form>
 </section>
 
 <section class="centre">

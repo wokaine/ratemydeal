@@ -2,6 +2,7 @@ from flask import (
     Flask, url_for, Blueprint, flash, g, redirect, render_template, request, session 
 )
 import functools
+from db import *
 
 # The original idea here was to scrape the Tesco website,
 # however due to problems with getting requests I have gone
@@ -37,6 +38,11 @@ def index():
 
     if request.method == 'POST':
         if request.form['submit_deal'] == 'submit':
-            # upload happens here
-            pass
-    return render_template('index.html', mains=mains, snacks=snacks, drinks=drinks)
+            main = request.form.get('main')
+            snack = request.form.get('snack')
+            drink = request.form.get('drink')
+
+            uploadPost(main, snack, drink)
+            return redirect(url_for('posts_page'))
+    else:
+        return render_template('index.html', mains=mains, snacks=snacks, drinks=drinks)

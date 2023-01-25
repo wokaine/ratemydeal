@@ -18,6 +18,7 @@ html{
 #options{
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(0, 0, 0);
+    width: 95%;
 }
 
 .select-boxes{
@@ -26,6 +27,7 @@ html{
 
 select{
     font-size: 18px;
+    margin-right: 5px;
 }
 
 .submit{
