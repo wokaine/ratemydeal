@@ -1,9 +1,16 @@
-from flask import Flask, url_for
+from flask import Flask
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import os
 
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
+
+    client = MongoClient(
+        "mongodb+srv://ratemydeal1:'uzcOAvi7vz2b5RYM'@cluster0.u1zrqbz.mongodb.net/?retryWrites=true&w=majority", 
+        server_api=ServerApi('1'))
+    db = client.test
 
     try:
         os.makedirs(app.instance_path)
