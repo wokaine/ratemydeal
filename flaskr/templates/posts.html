@@ -4,13 +4,15 @@
 <section>
     <h1 class="title">Rate Deals</h1>
 </section>
-<section id="#options" class=".center">
+<section>
     {% for post in posts %}
-        <article>
-            <p>User: {{ post.submitter }}</p>
-            <p>Main: {{ post.main }}</p>
-            <p>Snack: {{ post.snack }}</p>
-            <p>Drink: {{ post.drink }}</p>
+        <article id="deal" class="centre">
+            <p><b>Main:</b> {{ post.main }}</p>
+            <p><b>Snack:</b> {{ post.snack }}</p>
+            <p><b>Drink:</b> {{ post.drink }}</p>
         </article>
     {% endfor %}
+</section>
+<section class="centre">
+    <a class="to-page" href="{{url_for('index_page')}}">Home page</a>
 </section>

@@ -18,3 +18,6 @@ class PostResource(Resource):
         db.posts.insert_one(post)
         print("Post added to DB (?)")
         return jsonify({'message': 'Post added successfully!'}), 201
+
+    def get_all(self):
+        return list(db.posts.find({}))

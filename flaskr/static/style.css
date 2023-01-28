@@ -21,6 +21,13 @@ html{
     width: 95%;
 }
 
+#deal{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    width: 50%;
+    margin-bottom: 5px;
+}
+
 .select-boxes{
     display: inline-block;
 }
@@ -46,7 +53,7 @@ select{
     background-color: rgb(84, 84, 84);
 }
 
-.to-posts{
+.to-page{
     padding: 1%;
     background-color: white;
     border-radius: 10px;
@@ -55,6 +62,6 @@ select{
     text-decoration: none;
 }
 
-.to-posts:hover{
+.to-page:hover{
     text-decoration: underline;
 }
