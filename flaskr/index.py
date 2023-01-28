@@ -1,8 +1,9 @@
 from flask import ( 
-    Flask, url_for, Blueprint, flash, g, redirect, render_template, request, session 
+    Flask, url_for, Blueprint, redirect, render_template, request, jsonify
 )
 import functools
-from .db import *
+from db import db
+from post_resource import PostResource
 
 # The original idea here was to scrape the Tesco website,
 # however due to problems with getting requests I have gone
@@ -35,21 +36,11 @@ bp = Blueprint('index', __name__, url_prefix='/')
 @bp.route('/', methods=('GET', 'POST'))
 def index():
     mains, snacks, drinks = getOptions()
+    return render_template('index.html', mains=mains, snacks=snacks, drinks=drinks)
 
-    if request.method == 'POST':
-        print("POST request received")
-        print("Submit button...")
-
-        print("Get main")
-        main = request.form.get('main')
-        print("get snack")
-        snack = request.form.get('snack')
-        print("get drink")
-        drink = request.form.get('drink')
-
-        uploadPost(main, snack, drink)
-        print("Uploading deal")
-
-        return redirect(url_for('posts_page'))
-    elif request.method == 'GET':
-        return render_template('index.html', mains=mains, snacks=snacks, drinks=drinks)
+@bp.route('/submit', methods=['PUT'])
+def submit():
+    data = request.form.to_dict()
+    post_resource = PostResource()
+    post_resource.post(data)
+    return redirect(url_for('posts_page'))
