@@ -2,8 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from post_resource import PostResource
-from post_resource import post_resource
+from .post_resource import PostResource
 import os
 
 def create_app():
@@ -20,7 +19,6 @@ def create_app():
     from . import index, posts
     app.register_blueprint(index.bp)
     app.register_blueprint(posts.bp)
-    app.register_blueprint(post_resource)
     api.add_resource(PostResource, '/submit')
     app.add_url_rule('/', endpoint='index')
 
@@ -31,5 +29,9 @@ def create_app():
     @app.route('/posts')
     def posts_page():
         return posts.posts()
+
+    @app.route('/submit', methods=['PUT'])
+    def submit_deal():
+        return index.submit()
 
     return app

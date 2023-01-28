@@ -6,7 +6,7 @@
 </section>
 <section id="options" class="centre">
     <h2>What did you have today?</h2>
-    <form method="post">
+    <form method="put" id="form">
         <section class="select-boxes">
             <label for="main">Main:</label>
             <select name="main" id="main">
@@ -38,3 +38,5 @@
 <section class="centre">
     <a class="to-posts" href="{{url_for('posts_page')}}">See other people's deals</a>
 </section>
+
+<script src="{{url_for('static', filename='js/submitForm.js')}}"></script>

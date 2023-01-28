@@ -8,5 +8,4 @@ bp = Blueprint('posts', __name__, url_prefix='/posts')
 
 @bp.route('/posts', methods=('GET', 'POST'))
 def posts():
-    posts = getPosts()
     return render_template('posts.html', posts=posts)

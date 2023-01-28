@@ -1,12 +1,12 @@
-from flask import Blueprint, request, jsonify, Flask
-from flask_restful import  Resource
-from db import db
+from flask import request, jsonify
+from flask_restful import Resource
+from .db import db
 
-post_resource = Blueprint('post_resource', __name__)
 
 class PostResource(Resource):
-    def post(self):
+    def post(self, data):
         data = request.get_json()
+        print(data)
         post = {
             'main': data['main'],
             'snack': data['snack'],
@@ -16,4 +16,5 @@ class PostResource(Resource):
             'dislikes':0
         }
         db.posts.insert_one(post)
+        print("Post added to DB (?)")
         return jsonify({'message': 'Post added successfully!'}), 201

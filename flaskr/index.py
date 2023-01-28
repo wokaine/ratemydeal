@@ -2,8 +2,8 @@ from flask import (
     Flask, url_for, Blueprint, redirect, render_template, request, jsonify
 )
 import functools
-from db import db
-from post_resource import PostResource
+from .db import db
+from .post_resource import PostResource
 
 # The original idea here was to scrape the Tesco website,
 # however due to problems with getting requests I have gone
@@ -40,7 +40,8 @@ def index():
 
 @bp.route('/submit', methods=['PUT'])
 def submit():
+    print("Submit button pressed")
     data = request.form.to_dict()
     post_resource = PostResource()
     post_resource.post(data)
-    return redirect(url_for('posts_page'))
+    return jsonify({"status": "success"}), 200
