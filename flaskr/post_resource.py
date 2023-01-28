@@ -11,6 +11,7 @@ class PostResource(Resource):
             'main': data['main'],
             'snack': data['snack'],
             'drink': data['drink'],
+            'submitted_by': data['enter_name'],
             'comments':[],
             'likes':0,
             'dislikes':0

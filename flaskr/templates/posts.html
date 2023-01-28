@@ -7,6 +7,7 @@
 <section>
     {% for post in posts %}
         <article id="deal" class="centre">
+            <p><b>Submission by </b>{{ post.submitted_by }}</p>
             <p><b>Main:</b> {{ post.main }}</p>
             <p><b>Snack:</b> {{ post.snack }}</p>
             <p><b>Drink:</b> {{ post.drink }}</p>
