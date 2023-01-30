@@ -41,7 +41,6 @@ def index():
 @bp.route('/submit', methods=['PUT'])
 def submit():
     print("Submit button pressed")
-    data = request.form.to_dict()
     post_resource = PostResource()
-    post_resource.post(data)
+    post_resource.post()
     return jsonify({"status": "success"}), 200

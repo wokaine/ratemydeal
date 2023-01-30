@@ -34,4 +34,20 @@ def create_app():
     def submit_deal():
         return index.submit()
 
+    """ @app.route('/posts/<post_id>/like', methods=['PUT'])
+    def like_post(post_id):
+        return posts.like(post_id)
+
+    @app.route('/posts/<post_id>/dislike', methods=['PUT'])
+    def dislike_post(post_id):
+        return posts.dislike(post_id) """
+
+    @app.route('/posts/view/<string:post_id>')
+    def view_post_page(post_id):
+        return posts.view_post(post_id)
+
+    @app.route('/posts/view/<string:post_id>/submit_comment', methods=['PUT'])
+    def submit_comment(post_id):
+        return posts.post_comment(post_id)
+
     return app

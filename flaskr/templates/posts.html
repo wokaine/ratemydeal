@@ -11,9 +11,22 @@
             <p><b>Main:</b> {{ post.main }}</p>
             <p><b>Snack:</b> {{ post.snack }}</p>
             <p><b>Drink:</b> {{ post.drink }}</p>
+            <!--<p><b>Likes:</b>{{ post.likes }} <b> Dislikes:</b>{{ post.dislikes }}</p>-->
+
+            <!--
+            <section class="like-dislike">
+                <button class="like" post-id="{{ post._id }}">Like</button>
+                <button class="dislike" post-id="{{ post._id }}">Dislike</button>
+            </section>
+            -->
+
+            <a href="/posts/view/{{ post._id }}">View comments</a>
         </article>
     {% endfor %}
 </section>
 <section class="centre">
     <a class="to-page" href="{{url_for('index_page')}}">Home page</a>
 </section>
+
+<!--With no account system, it is hard to create a liking system where a user can like a post only once so this is gonna be commented out-->
+<!--<script src="{{url_for('static', filename='js/likeDislikePost.js')}}" defer></script> -->

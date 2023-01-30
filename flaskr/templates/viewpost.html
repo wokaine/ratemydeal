@@ -1,0 +1,42 @@
+<!doctype html>
+<title> {% block title %}{% endblock %}Rate My Deal</title>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+<section>
+    <h1 class="title">Rate Deals</h1>
+</section>
+<section>
+    <article id="deal" class="centre">
+        <p><b>Submission by </b>{{ post.submitted_by }}</p>
+        <p><b>Main:</b> {{ post.main }}</p>
+        <p><b>Snack:</b> {{ post.snack }}</p>
+        <p><b>Drink:</b> {{ post.drink }}</p>
+        <!--<p><b>Likes:</b>{{ post.likes }} <b> Dislikes:</b>{{ post.dislikes }}</p>-->
+
+        <!--
+        <section class="like-dislike">
+            <button class="like" post-id="{{ post._id }}">Like</button>
+            <button class="dislike" post-id="{{ post._id }}">Dislike</button>
+        </section>
+        -->
+        <p><b>Comments:</b></p>
+        {% for comment in post['comments'] %}
+            <section class="comment">
+                <p>{{ comment['comment'] }}</p>
+            </section>
+        {% endfor %}
+    </article>
+    <section class="comment-box">
+        <p>Leave a comment</p>
+        <form method="put" id="form">
+            <textarea name="comment" id="comment" cols="30" rows="5">Put your comment here</textarea>
+            <section>
+                <input class="submit" type="submit" name="submit_comment" value="Submit">
+            </section>
+        </form>
+    </section>
+</section>
+<section class="centre">
+    <a class="to-page" href="{{url_for('posts_page')}}">Back</a>
+</section>
+
+<script src="{{url_for('static', filename='js/submitComment.js')}}"></script>
