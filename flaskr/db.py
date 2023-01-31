@@ -7,7 +7,6 @@ password = os.environ.get("MONGO_PASSWORD")
 
 print("Connecting to database...")
 try:
-    print(f"mongodb+srv://{username}:{password}@cluster0.u1zrqbz.mongodb.net/?retryWrites=true&w=majority")
     client = MongoClient(
     f"mongodb+srv://{username}:{password}@cluster0.u1zrqbz.mongodb.net/?retryWrites=true&w=majority", 
     server_api=ServerApi('1'))
