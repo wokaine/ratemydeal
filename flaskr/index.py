@@ -1,8 +1,6 @@
 from flask import ( 
-    Flask, url_for, Blueprint, redirect, render_template, request, jsonify
+    Blueprint, render_template, jsonify
 )
-import functools
-from .db import db
 from .post_resource import PostResource
 
 # The original idea here was to scrape the Tesco website,

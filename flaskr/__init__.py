@@ -1,7 +1,5 @@
 from flask import Flask
 from flask_restful import Api
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 from .post_resource import PostResource
 import os
 
