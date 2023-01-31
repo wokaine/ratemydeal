@@ -1,8 +1,6 @@
 from flask import ( 
-    Flask, url_for, Blueprint, redirect, render_template, jsonify
+    Blueprint, render_template, jsonify
 )
-import functools
-from .db import *
 from .post_resource import PostResource
 
 bp = Blueprint('posts', __name__, url_prefix='/posts')
