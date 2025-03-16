@@ -21,7 +21,7 @@
         <p><b>Comments:</b></p>
         {% for comment in post['comments'] %}
             <section class="comment">
-                <p>{{ comment['comment'] }}</p>
+                <p><b>{{ comment['user'] }}</b> says: {{ comment['comment'] }}</p>
             </section>
         {% endfor %}
     </article>

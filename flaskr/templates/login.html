@@ -1,0 +1,31 @@
+<!doctype html>
+<title> {% block title %}{% endblock %}Rate My Deal</title>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+<section class="sign-ups">
+    <a class="to-page" href="{{url_for('view_sign_up')}}">Sign Up</a>
+</section>
+<section>
+    <h1 class="title">Log In</h1>
+</section>
+<section id="options" class="centre">
+    <span id="usernameWarning"></span>
+    <form method="put" id="form">
+        <section>
+            <label for="enter_name">Username:</label>
+            <input type="text" name="enter_name" class="enter-name" autocomplete="off">
+        </section>
+        <section>
+            <label for="enter_name">Password:</label>
+            <input type="password" name="enter_password" class="enter-name">
+        </section>
+        <section>
+            <input class="submit" type="submit" name="submit" value="Submit">
+        </section>
+    </form>
+</section>
+
+<section class="centre">
+    <a class="to-page" href="{{url_for('index_page')}}">Home page</a>
+</section>
+
+<script src="{{url_for('static', filename='js/submitLogin.js')}}"></script>

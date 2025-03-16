@@ -11,14 +11,14 @@ const submitForm = async (event) => {
             }
         });
         if (response.ok) {
-            alert('Post submitted successfully!');
+            console.log('Post submitted successfully!');
             window.location.href = '/';
         } else {
-            alert('There was an error submitting the post, please try again.');
+            console.log('There was an error submitting the post, please try again.');
         }
     } catch (error) {
         console.error(error);
-        alert('There was an error submitting the post, please try again.');
+        console.log('There was an error submitting the post, please try again.');
     }
 };
 

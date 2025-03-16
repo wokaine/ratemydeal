@@ -1,2 +1,8 @@
 .env
 app.yaml
+flaskr/__pycache__
+flaskstuff
+instance
+venv
+requirements.txt
+Dockerfile

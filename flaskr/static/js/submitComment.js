@@ -14,14 +14,14 @@ const submitComment = async (event) => {
             }
         });
         if (response.ok) {
-            alert('Comment submitted successfully!');
+            console.log('Comment submitted successfully!');
             window.location.href = `/posts/view/${post_id}`;
         } else {
-            alert('There was an error submitting the comment, please try again.');
+            console.log('There was an error submitting the comment, please try again.');
         }
     } catch (error) {
         console.error(error);
-        alert('There was an error submitting the comment, please try again.');
+        console.log('There was an error submitting the comment, please try again.');
     }
 };
 

@@ -1,11 +1,21 @@
 <!doctype html>
 <title> {% block title %}{% endblock %}Rate My Deal</title>
 <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+{% if "user" not in session %}
+    <section class="sign-ups">
+        <a class="to-page" href="{{url_for('view_log_in')}}">Log In</a>
+        <a class="to-page" href="{{url_for('view_sign_up')}}">Sign Up</a>
+    </section>
+{% else %}
+    <section class="sign-ups">
+        <a class="to-page" href="{{url_for('logout')}}">Log Out</a>
+    </section>
+{% endif %}
 <section>
     <h1 class="title">Rate My Deal</h1>
 </section>
 <section id="options" class="centre">
-    <h2>What did you have today?</h2>
+    <h2>Welcome, {{ username }}. What did you have today?</h2>
     <form method="put" id="form">
         <section class="select-boxes">
             <label for="main">Main:</label>
@@ -28,10 +38,6 @@
                     <option value="{{drink}}">{{drink}}</option>
                 {% endfor %}
             </select>
-        </section>
-        <section>
-            <label for="enter_name">Name:</label>
-            <input type="text" name="enter_name" class="enter-name">
         </section>
         <section>
             <input class="submit" type="submit" name="submit_deal" value="Submit">

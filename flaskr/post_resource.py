@@ -1,17 +1,21 @@
-from flask import request, jsonify
+from flask import request, jsonify, session
 from flask_restful import Resource
 from bson.objectid import ObjectId
-from .db import db
+from db import db
 
 
 class PostResource(Resource):
     def post(self):
         data = request.get_json()
+        if "user" in session:
+            name = session["user"]
+        else:
+            name = "Anonymous"
         post = {
             'main': data['main'],
             'snack': data['snack'],
             'drink': data['drink'],
-            'submitted_by': data['enter_name'],
+            'submitted_by': name,
             'comments':[],
             'likes':0,
             'dislikes':0
@@ -30,6 +34,11 @@ class PostResource(Resource):
         data = request.get_json()
         print(post_id)
         post = db.posts.find_one({"_id": ObjectId(post_id)})
+        if "user" in session:
+            name = session["user"]
+        else:
+            name = "Anonymous"
+        data["user"] = name
         if post:
             db.posts.update_one({"_id": ObjectId(post_id)}, {'$push': {'comments': data}})
             return jsonify({"message": "Comment sent successfully"}), 200
