@@ -13,5 +13,5 @@ The first "phase" (for lack of a better word) is finished, this includes:
 * Users can view deals
 * Users can leave a comment
 
-Still having issues with deploying it onto Google Cloud.
-
+## Issues
+The main developmental issue at the moment is allowing the docker container to reach the MongoDB. I have plans to return to this project and fix it, but things keep getting in the way and I struggle to find a good opportunity to just sit down and fix it.
