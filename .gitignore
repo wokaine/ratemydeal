@@ -6,5 +6,6 @@ instance
 venv
 requirements.txt
 Dockerfile
+flaskr/.dockerignore
 flaskr/db.py
-flaskstuff/
+flaskstuff
